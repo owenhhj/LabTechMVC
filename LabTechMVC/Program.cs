@@ -1,4 +1,9 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using LabTechMVC.Data;
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<LabTechMVCContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("LabTechMVCContext") ?? throw new InvalidOperationException("Connection string 'LabTechMVCContext' not found.")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

@@ -1,0 +1,17 @@
+﻿@model IEnumerable<LabTechMVC.Models.Issue>
+
+@{
+    ViewData["Title"] = "Issues By Category";
+}
+
+<div>
+    <h1>@ViewData["CategorySelected"] issues</h1>
+    
+    @foreach (var item in Model)
+    {
+        <div>
+            <p style="font-weight: bold;">@item.Question</p>
+            <p>@item.Answer</p>
+        </div>
+    }
+</div>
